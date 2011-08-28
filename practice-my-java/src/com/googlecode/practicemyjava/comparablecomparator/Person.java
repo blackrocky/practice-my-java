@@ -1,5 +1,11 @@
 package com.googlecode.practicemyjava.comparablecomparator;
 
+/**
+ * Person
+ * 
+ * @author blackrocky
+ *
+ */
 public class Person implements Comparable<Person>{
 	private int id;
 	private String firstName;
