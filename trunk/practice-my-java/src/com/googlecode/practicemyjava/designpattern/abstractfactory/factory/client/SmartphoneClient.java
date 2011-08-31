@@ -6,6 +6,13 @@ import com.googlecode.practicemyjava.designpattern.abstractfactory.factory.Smart
 import com.googlecode.practicemyjava.designpattern.abstractfactory.product.PhoneCover;
 import com.googlecode.practicemyjava.designpattern.abstractfactory.product.Smartphone;
 
+/**
+ * Using Abstract Factory Design Pattern
+ * For UML Diagram, see: http://www.apwebco.com/gofpatterns/creational/AbstractFactory.html
+ * 
+ * @author blackrocky
+ *
+ */
 public class SmartphoneClient {
 	public static void main(String[] args) {
 		SmartphoneFactory samsung = new SamsungSmartphoneFactory();
