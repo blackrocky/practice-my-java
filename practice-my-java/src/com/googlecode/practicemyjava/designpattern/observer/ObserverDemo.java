@@ -1,5 +1,15 @@
 package com.googlecode.practicemyjava.designpattern.observer;
 
+/**
+ * Observer Design Pattern demo
+ * Scenario:
+ * A class of students (Observers), a prefect (Observable), and a teacher.
+ * The teacher is currently away, and the students were having a party.
+ * The prefect notifies the students when the teacher is coming
+ * 
+ * @author blackrocky
+ *
+ */
 public class ObserverDemo {
 	private Prefect p = new Prefect();
 	private Student s1 = new Student();
