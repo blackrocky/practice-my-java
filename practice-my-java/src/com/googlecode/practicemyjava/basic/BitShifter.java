@@ -6,7 +6,7 @@ package com.googlecode.practicemyjava.basic;
  * @author blackrocky
  *
  */
-public class Shift {
+public class BitShifter {
 	public static void main(String[] args) {
 		int x = -1;
 		x = x >>> 5;
