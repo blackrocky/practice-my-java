@@ -1,4 +1,4 @@
-package com.googlecode.practicemyjava.basic;
+package com.googlecode.practicemyjava.multithreading;
 /**
  * DeadLock Example
  * 
