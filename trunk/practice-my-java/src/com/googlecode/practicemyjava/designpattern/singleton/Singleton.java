@@ -1,4 +1,4 @@
-package com.googlecode.practicemyjava;
+package com.googlecode.practicemyjava.designpattern.singleton;
 /**
  * Singleton pattern
  * 
