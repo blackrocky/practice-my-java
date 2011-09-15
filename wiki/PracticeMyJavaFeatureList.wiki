@@ -5,6 +5,10 @@
 
 This project is build for the purpose of learning basic Java and design patterns that are often asked during an interview.
 
+= Feature List =
+  * Core Java stuff
+  * Design pattern examples
+  * Multithreading
 
 = Feature Request =
   * *Builder* design pattern example
