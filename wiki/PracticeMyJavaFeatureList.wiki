@@ -1,0 +1,17 @@
+#summary A list of requests and wish list for this project
+#labels Featured
+
+= Introduction =
+
+This project is build for the purpose of learning basic Java and design patterns that are often asked during an interview.
+
+
+= Feature Request =
+  * *Builder* design pattern example
+  * *State* design pattern example
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
