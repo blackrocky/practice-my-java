@@ -1,9 +1,12 @@
 package com.googlecode.practicemyjava.java8;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalUnit;
+import java.util.Locale;
 
 import static java.time.temporal.TemporalAdjusters.*;
 
@@ -14,7 +17,8 @@ public class DateAndTime {
 //        printLocalDateTimes();
 //        printTimeZoneDateTimes();
 //        printTimestamps();
-        printPeriodsDurations();
+//        printPeriodsDurations();
+        printFormatting();
     }
 
     public static void printLocalDates() {
@@ -97,5 +101,22 @@ public class DateAndTime {
         Period twoWeeksAndOneDayNotice = Period.ofWeeks(2).plusDays(1);
         LocalDate localDate = LocalDate.of(2015, 6, 12);
         System.out.println("12 June plus 2 weeks and 1 day = " + localDate.plus(twoWeeksAndOneDayNotice));
+    }
+
+    public static void printFormatting() {
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("iso date format = " + now.format(DateTimeFormatter.BASIC_ISO_DATE));
+        System.out.println("iso week date format = " + now.format(DateTimeFormatter.ISO_WEEK_DATE));
+        System.out.println("iso date time = " + now.format(DateTimeFormatter.ISO_DATE_TIME));
+        System.out.println("iso local date time = " + now.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        System.out.println("custom format = " + now.format(DateTimeFormatter.ofPattern("dd MMM yy")));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+                .withLocale(new Locale("de"));
+        System.out.println("German date time format = " + now.format(formatter));
+
+        System.out.println("Parse from Iso Date = " + LocalDate.parse("2015-06-12"));
+        System.out.println("Parse from Iso Week Date = " + LocalDate.parse("2015-W24-5", DateTimeFormatter.ISO_WEEK_DATE));
+        System.out.println("Parse from custom pattern = " + LocalDate.parse("12.06.2015", DateTimeFormatter.ofPattern("dd.MM.yyyy")));
     }
 }
