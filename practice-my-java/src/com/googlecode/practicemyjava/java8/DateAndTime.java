@@ -1,15 +1,20 @@
 package com.googlecode.practicemyjava.java8;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.TemporalUnit;
 
 import static java.time.temporal.TemporalAdjusters.*;
 
 public class DateAndTime {
     public static void main(String[] args) {
-        printLocalDates();
-        printLocalTimes();
-        printLocalDateTimes();
+//        printLocalDates();
+//        printLocalTimes();
+//        printLocalDateTimes();
+//        printTimeZoneDateTimes();
+//        printTimestamps();
+        printPeriodsDurations();
     }
 
     public static void printLocalDates() {
@@ -56,4 +61,41 @@ public class DateAndTime {
         System.out.println("------------------");
     }
 
+    public static void printTimeZoneDateTimes() {
+        LocalDateTime localDateTime = LocalDateTime.of(2015, 6, 1, 5, 0);
+
+        ZonedDateTime aucklandDateTime = ZonedDateTime.of(localDateTime, ZoneId.of("Pacific/Auckland"));
+        ZonedDateTime losAngelesDateTime = aucklandDateTime.withZoneSameInstant(ZoneId.of("America/Los_Angeles"));
+
+        System.out.println("LA date time = " + losAngelesDateTime);
+        System.out.println("Auckland date time = " + aucklandDateTime);
+        System.out.println("Offset = " + aucklandDateTime.getOffset().getTotalSeconds());
+
+        OffsetDateTime plusSeven = OffsetDateTime.of(localDateTime, ZoneOffset.of("+07:00"));
+        System.out.println("plus seven = " + plusSeven);
+    }
+
+    public static void printTimestamps() {
+        Instant now = Instant.now();
+        System.out.println("now in ISO 8601 format = " + now);
+        System.out.println("now in epoch second = " + now.getEpochSecond());
+        System.out.println("now in epoch millis = " + now.toEpochMilli());
+        System.out.println("now plus 3 minutes = " + now.plus(3, ChronoUnit.MINUTES));
+
+        System.out.println("epoch second = " + Instant.ofEpochSecond(1434065151));
+        System.out.println("epoch millis = " + Instant.ofEpochMilli(1434065151796L));
+        System.out.println("parsing from ISO 8601 = " + Instant.parse("2015-06-11T23:25:51.796Z"));
+    }
+
+    public static void printPeriodsDurations() {
+        Period period = Period.between(LocalDate.of(2014, 7, 2), LocalDate.of(2015, 7, 1));
+        System.out.println("days = " + period.getDays());
+        System.out.println("months = " + period.getMonths());
+        System.out.println("years = " + period.getYears());
+        System.out.println("is negative = " + period.isNegative());
+
+        Period twoWeeksAndOneDayNotice = Period.ofWeeks(2).plusDays(1);
+        LocalDate localDate = LocalDate.of(2015, 6, 12);
+        System.out.println("12 June plus 2 weeks and 1 day = " + localDate.plus(twoWeeksAndOneDayNotice));
+    }
 }
