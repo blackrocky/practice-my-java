@@ -6,7 +6,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalUnit;
-import java.util.Locale;
+import java.util.*;
 
 import static java.time.temporal.TemporalAdjusters.*;
 
@@ -18,7 +18,8 @@ public class DateAndTime {
 //        printTimeZoneDateTimes();
 //        printTimestamps();
 //        printPeriodsDurations();
-        printFormatting();
+//        printFormatting();
+        printConversion();
     }
 
     public static void printLocalDates() {
@@ -118,5 +119,27 @@ public class DateAndTime {
         System.out.println("Parse from Iso Date = " + LocalDate.parse("2015-06-12"));
         System.out.println("Parse from Iso Week Date = " + LocalDate.parse("2015-W24-5", DateTimeFormatter.ISO_WEEK_DATE));
         System.out.println("Parse from custom pattern = " + LocalDate.parse("12.06.2015", DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+    }
+
+    public static void printConversion() {
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        System.out.println("date time from Date and Time = " + LocalDateTime.of(date, time));
+
+        System.out.println("date from dateTime = " + LocalDateTime.now().toLocalDate());
+        System.out.println("time from dateTime = " + LocalDateTime.now().toLocalTime());
+
+        Instant instant = Instant.now();
+        System.out.println("LA dateTime from instant = " + LocalDateTime.ofInstant(instant, ZoneId.of("America/Los_Angeles")));
+        System.out.println("instant from dateTime = " + LocalDateTime.now().toInstant(ZoneOffset.ofHours(-2)));
+
+        System.out.println("instant from Date = " + new Date().toInstant());
+        System.out.println("LocalDateTime from Date = " + LocalDateTime.ofInstant(new Date().toInstant(), TimeZone.getDefault().toZoneId()));
+        System.out.println("instant from Calendar = " + Calendar.getInstance().toInstant());
+        System.out.println("instant from gregorian calendar = " + new GregorianCalendar().toZonedDateTime());
+
+        System.out.println("date from Instant = " + Date.from(Instant.now()));
+        System.out.println("timezone = " + TimeZone.getTimeZone(ZoneId.of("America/Los_Angeles")));
+        System.out.println("gregorian calendar = " + GregorianCalendar.from(ZonedDateTime.now()));
     }
 }
