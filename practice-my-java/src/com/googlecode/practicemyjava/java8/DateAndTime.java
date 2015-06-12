@@ -4,11 +4,9 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjusters;
-import java.time.temporal.TemporalUnit;
 import java.util.*;
 
-import static java.time.temporal.TemporalAdjusters.*;
+import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 
 public class DateAndTime {
     public static void main(String[] args) {
