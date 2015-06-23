@@ -37,6 +37,6 @@ public class RandomSuburbGenerator {
     }
 
     public String generate() {
-        return "suburb"; // implementation omitted
+        return "Epping in " + state.name() + " of type " + type.name(); // implementation omitted
     }
 }
