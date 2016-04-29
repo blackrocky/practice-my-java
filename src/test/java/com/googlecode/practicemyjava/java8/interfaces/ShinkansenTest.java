@@ -14,7 +14,7 @@ public class ShinkansenTest {
     }
 
     @Test
-    public void should_have_250_as_max_speed_with_next_door_announcement() {
+    public void should_have_250_as_max_speed_with_next_station_announcement() {
         final Shinkansen2Interface shinkansen2 = new SakuraShinkansen();
         assertThat(shinkansen2.maximumSpeedInKmH(), is(250));
         assertThat(shinkansen2.nextStationAnnouncement(), is("Tsugi wa"));
