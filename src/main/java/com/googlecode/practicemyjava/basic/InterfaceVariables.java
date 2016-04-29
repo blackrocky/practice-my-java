@@ -1,7 +1,7 @@
 package com.googlecode.practicemyjava.basic;
 
 /**
- * All interface variables are automatically public static final
+ * All interfaces variables are automatically public static final
  * 
  * @author blackrocky
  *

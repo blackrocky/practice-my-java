@@ -13,7 +13,7 @@ import java.util.TreeSet;
  * - {@link Comparator} requires you to implement compare() with 2 parameters, {@link Comparable} requires you to implement compareTo() with 1 parameter
  * - {@link Comparator} compares two objects provided to it, {@link Comparable} compares "this" reference with the given object
  * - {@link Comparable} is used to implement natural ordering of object
- * - Any class implementing {@link Comparable} interface and then collection of that object in List or Array can then be sorted by using
+ * - Any class implementing {@link Comparable} interfaces and then collection of that object in List or Array can then be sorted by using
  *   Collections.sort() or Arrays.sort() based on the natural ordered defined in compareTo() method
  * - Any Comparable implementation can be used as keys in a sorted map or elements in a sorted set eg. TreeSet, without specifying any Comparator
  * 
