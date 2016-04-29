@@ -2,13 +2,13 @@ package com.googlecode.practicemyjava.java8.interfaces;
 
 public class SakuraShinkansen implements Shinkansen1Interface, Shinkansen2Interface {
     @Override
-    public void go1() {
-        // go1 implementation goes here
+    public String go1() {
+        return "go1 implementation";
     }
 
     @Override
-    public void go2() {
-        // go2 implementation goes here
+    public String go2() {
+        return "go2 implementation";
     }
 
     @Override
