@@ -10,7 +10,7 @@ public class Reduce {
             new Employee("1", "Tony", "Stark", "Director"),
             new Employee("2", "Steve", "Rogers", "Captain"),
             new Employee("3", "David", "Banner", "Scientist"),
-            new Employee("3", "The", "Hulk", "?")
+            new Employee("3", "The", "Hulk", "He's always angry")
     );
 
     public static Optional<Employee> findOnlyEmployeeWithId(final String employeeId) {
