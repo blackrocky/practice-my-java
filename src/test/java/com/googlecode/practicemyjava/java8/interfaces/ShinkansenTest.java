@@ -38,6 +38,8 @@ public class ShinkansenTest {
     	final Shinkansen1Interface shinkansen = () -> { return "my own go1 implementation"; };
 
         assertThat(shinkansen.go1(), is("my own go1 implementation"));
+        assertThat(shinkansen.maximumSpeedInKmH(), is(200));
+        assertThat(shinkansen.closeDoorAnnouncement(), is("Door ga shimarimas"));
     }
 
     @Test
@@ -45,5 +47,7 @@ public class ShinkansenTest {
     	final Shinkansen2Interface shinkansen = () -> { return "my own go2 implementation"; };
 
         assertThat(shinkansen.go2(), is("my own go2 implementation"));
+        assertThat(shinkansen.maximumSpeedInKmH(), is(300));
+        assertThat(shinkansen.nextStationAnnouncement(), is("Tsugi wa"));
     }
 }
