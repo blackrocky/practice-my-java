@@ -11,7 +11,7 @@ public class ForEachList {
     private static final Logger logger = LoggerFactory.getLogger(ForEachList.class);
 
     public static void main(String[] args) {
-        List<String> japaneseCities = Lists.newArrayList("Fukuoka", "Hiroshima", "Kanazawa", "Takayama", "Nagoya", "Tokyo");
+        final List<String> japaneseCities = Lists.newArrayList("Fukuoka", "Hiroshima", "Kanazawa", "Takayama", "Nagoya", "Tokyo");
 
         logger.info("Traversing using forEach and anonymous class");
         japaneseCities.forEach(new Consumer<String>() {
@@ -19,16 +19,17 @@ public class ForEachList {
                 logger.info("{}", t);
             }
         });
-        logger.info("");
+        logger.info("-------------------------------------------------");
 
         logger.info("Traversing using Consumer implementation");
-        MyConsumer action = new MyConsumer();
+        final MyConsumer action = new MyConsumer();
         japaneseCities.forEach(action);
     }
 }
 
 class MyConsumer implements Consumer<String> {
     private static final Logger logger = LoggerFactory.getLogger(MyConsumer.class);
+
     public void accept(String t) {
         logger.info("{}", t);
     }
