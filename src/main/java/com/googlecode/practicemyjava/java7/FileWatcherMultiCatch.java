@@ -15,8 +15,8 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
-public class FileWatcher {
-    private static final Logger logger = LoggerFactory.getLogger(FileWatcher.class);
+public class FileWatcherMultiCatch {
+    private static final Logger logger = LoggerFactory.getLogger(FileWatcherMultiCatch.class);
 
     public static void main(String[] args) {
         final Path path = Paths.get("./src/main/resources");
