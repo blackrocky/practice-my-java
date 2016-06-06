@@ -13,4 +13,12 @@ public class FunctionForIntegerList {
         }
         return result;
     }
+
+    public static List<String> applyForEachReturnString(List<Integer> inputs, IntFunction<String> function) {
+        List<String> result = newArrayList();
+        for (int input : inputs) {
+            result.add(function.apply(input));
+        }
+        return result;
+    }
 }
