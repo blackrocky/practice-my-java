@@ -23,15 +23,4 @@ public class Fibonacci {
 	public int getNthNumber(int n) {
 		return series[n-1];
 	}
-	
-	public static void main(String[] args) {
-		Fibonacci f = new Fibonacci(10);
-		System.out.println(f.getNthNumber(1));
-		System.out.println(f.getNthNumber(2));
-		System.out.println(f.getNthNumber(3));
-		System.out.println(f.getNthNumber(4));
-		System.out.println(f.getNthNumber(5));
-		System.out.println(f.getNthNumber(6));
-		System.out.println(f.getNthNumber(7));
-	}
 }
