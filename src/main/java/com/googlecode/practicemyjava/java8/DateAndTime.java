@@ -15,9 +15,9 @@ public class DateAndTime {
 //        printLocalDateTimes();
 //        printTimeZoneDateTimes();
 //        printTimestamps();
-//        printPeriodsDurations();
+        printPeriodsDurations();
 //        printFormatting();
-        printConversion();
+//        printConversion();
     }
 
     public static void printLocalDates() {
@@ -100,6 +100,16 @@ public class DateAndTime {
         Period twoWeeksAndOneDayNotice = Period.ofWeeks(2).plusDays(1);
         LocalDate localDate = LocalDate.of(2015, 6, 12);
         System.out.println("12 June plus 2 weeks and 1 day = " + localDate.plus(twoWeeksAndOneDayNotice));
+
+        Instant instant1 = Instant.now();
+        Instant instant2 = instant1.plusNanos(10);
+        Duration duration = Duration.between(instant1, instant2);
+        System.out.println("duration = " + duration);
+        System.out.println("seconds = " + duration.getSeconds());
+        System.out.println("nanos = " + duration.getNano());
+        System.out.println("units = " + duration.getUnits());
+        System.out.println("is negative = " + duration.isNegative());
+
     }
 
     public static void printFormatting() {
