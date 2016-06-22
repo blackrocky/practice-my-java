@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static com.googlecode.practicemyjava.java8.stream.Reduce.findAverageAge;
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findEmployeAgedLessThan;
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findHulkJobTitle;
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findMaxAge;
@@ -54,6 +55,12 @@ public class ReduceTest {
     public void should_find_max_age_using_map_reduce() {
     	int maxAge = findMaxAgeUsingMapReduce();
         assertThat(maxAge, is(100));
+    }
+
+    @Test
+    public void should_find_average_age() {
+    	double averageAge = findAverageAge();
+        assertThat(averageAge, is(49.0));
     }
 
     @Test

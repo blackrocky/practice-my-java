@@ -36,6 +36,10 @@ public class Reduce {
         return employees.stream().map(Employee::getAge).reduce(0, (age1, age2) -> age1 >= age2? age1 : age2);
     }
 
+    public static double findAverageAge() {
+        return employees.stream().mapToInt(Employee::getAge).average().getAsDouble();
+    }
+
     public static String findHulkJobTitle() {
         return employees.stream().filter(employee -> "Hulk".equals(employee.getLastName())).map(employee -> employee.getJobTitle()).collect(Collectors.toList()).get(0);
     }
