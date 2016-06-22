@@ -3,12 +3,16 @@ package com.googlecode.practicemyjava.java8.stream;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findEmployeAgedLessThan;
+import static com.googlecode.practicemyjava.java8.stream.Reduce.findHulkJobTitle;
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findMaxAge;
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findMaxAgeUsingMapReduce;
 import static com.googlecode.practicemyjava.java8.stream.Reduce.findOnlyEmployeeWithId;
+import static com.googlecode.practicemyjava.java8.stream.Reduce.groupByGender;
+import static com.googlecode.practicemyjava.java8.stream.Reduce.groupByGenderEmployee;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -54,7 +58,25 @@ public class ReduceTest {
 
     @Test
     public void should_get_hulk_job_title() {
-    	String name = Reduce.findHulkJobTitle();
+    	String name = findHulkJobTitle();
         assertThat(name, is("He's always angry"));
     }
+    
+    @Test
+    public void should_return_map_of_gender_and_employee() {
+    	Map<Employee.Gender, List<Employee>> map = groupByGender();
+        assertThat(map.get(Employee.Gender.FEMALE).size(), is(1));
+        assertThat(map.get(Employee.Gender.FEMALE).get(0).getFirstName(), is("Natasha"));
+        assertThat(map.get(Employee.Gender.MALE).size(), is(4));
+    }
+
+    @Test
+    public void should_return_map_of_gender_and_employee_first_name() {
+    	Map<Employee.Gender, List<String>> map = groupByGenderEmployee();
+        assertThat(map.get(Employee.Gender.FEMALE).size(), is(1));
+        assertThat(map.get(Employee.Gender.FEMALE).get(0), is("Natasha"));
+        assertThat(map.get(Employee.Gender.MALE).size(), is(4));
+    }
+
+
 }
