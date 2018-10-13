@@ -9,12 +9,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class ImprovedAutomaticResourceManagement {
-    private static final Logger logger = LoggerFactory.getLogger(ImprovedAutomaticResourceManagement.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ImprovedAutomaticResourceManagement.class);
 
     public static void main(String[] args) throws IOException {
         final BufferedReader bf = Files.newBufferedReader(Paths.get("./src/main/resources/MyPracticeFile.txt"));
         try (bf) {
-            logger.info(bf.readLine());
+            LOGGER.info(bf.readLine());
         }
     }
 }

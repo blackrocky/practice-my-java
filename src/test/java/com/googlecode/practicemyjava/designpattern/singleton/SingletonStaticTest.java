@@ -15,18 +15,18 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class SingletonStaticTest {
     private SingletonStatic singletonStatic;
-    @Mock private Logger logger;
+    @Mock private Logger LOGGER;
 
     @Test
     public void should() throws NoSuchFieldException, IllegalAccessException {
-        setStaticFinalField(SingletonStatic.class, "LOGGER", logger);
+        setStaticFinalField(SingletonStatic.class, "LOGGER", LOGGER);
         singletonStatic = SingletonStatic.getInstance();
-        verify(logger).info("returning static instance");
+        verify(LOGGER).info("returning static instance");
 
         singletonStatic = SingletonStatic.getInstance();
         singletonStatic = SingletonStatic.getInstance();
         singletonStatic = SingletonStatic.getInstance();
-        verify(logger, times(0)).info("inside singleton static constructor");
+        verify(LOGGER, times(0)).info("inside singleton static constructor");
     }
 
     public static void setStaticFinalField(final Class clazz, final String fieldName, final Object fieldValue) throws NoSuchFieldException, IllegalAccessException {

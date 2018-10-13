@@ -7,13 +7,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FilesNIO {
-    private static final Logger logger = LoggerFactory.getLogger(FilesNIO.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FilesNIO.class);
 
     public static void main(String[] args) {
         final Path path = Paths.get("./src/main/resources/MyPracticeFile.txt");
 
-        logger.info("File name {}", path.getFileName());
-        logger.info("Parent {}", path.getParent());
-        logger.info("Root {}", path.getRoot());
+        LOGGER.info("File name {}", path.getFileName());
+        LOGGER.info("Parent {}", path.getParent());
+        LOGGER.info("Root {}", path.getRoot());
     }
 }

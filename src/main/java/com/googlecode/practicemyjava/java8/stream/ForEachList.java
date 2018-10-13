@@ -9,33 +9,33 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class ForEachList {
-    private static final Logger logger = LoggerFactory.getLogger(ForEachList.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ForEachList.class);
     private static final List<String> japaneseCitiesToVisit = ImmutableList.of("Fukuoka", "Hiroshima", "Kanazawa", "Takayama", "Nagoya", "Tokyo");
     private static final List<Integer> numbers = ImmutableList.of(1, 2, 3, 4, 5, 6);
 
     public static void main(String[] args) {
-        logger.info("Traversing using forEach and anonymous class");
-        japaneseCitiesToVisit.forEach(t -> logger.info("{}", t));
-        logger.info("-------------------------------------------------");
+        LOGGER.info("Traversing using forEach and anonymous class");
+        japaneseCitiesToVisit.forEach(t -> LOGGER.info("{}", t));
+        LOGGER.info("-------------------------------------------------");
 
-        logger.info("Traversing using Consumer implementation");
+        LOGGER.info("Traversing using Consumer implementation");
         final MyConsumer action = new MyConsumer();
         japaneseCitiesToVisit.forEach(action);
-        logger.info("-------------------------------------------------");
+        LOGGER.info("-------------------------------------------------");
 
-        logger.info("Using sequential and parallel streams");
+        LOGGER.info("Using sequential and parallel streams");
         final Stream<Integer> sequentialStream = numbers.stream();
         final Stream<Integer> parallelStream = numbers.parallelStream();
 
-        sequentialStream.filter(p -> p > 2).forEach(p -> logger.info("sequential numbers = {}", p));
-        parallelStream.filter(p -> p > 2).forEach(p -> logger.info("parallel numbers = {}", p));
+        sequentialStream.filter(p -> p > 2).forEach(p -> LOGGER.info("sequential numbers = {}", p));
+        parallelStream.filter(p -> p > 2).forEach(p -> LOGGER.info("parallel numbers = {}", p));
     }
 }
 
 class MyConsumer implements Consumer<String> {
-    private static final Logger logger = LoggerFactory.getLogger(MyConsumer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyConsumer.class);
 
     public void accept(final String t) {
-        logger.info("{}", t);
+        LOGGER.info("{}", t);
     }
 }
