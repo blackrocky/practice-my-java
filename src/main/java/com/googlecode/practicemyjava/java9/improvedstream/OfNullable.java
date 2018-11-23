@@ -9,7 +9,9 @@ public class OfNullable {
     private static final Logger LOGGER = LoggerFactory.getLogger(OfNullable.class);
 
     public static void main(String[] args) {
-        Stream.ofNullable(1).forEach(x -> LOGGER.info("{}", x));
-        Stream.ofNullable(null).forEach(x -> LOGGER.info("{}", x));
+        Stream.ofNullable(1)
+                .forEach(x -> LOGGER.info("{}", x));
+        Stream.ofNullable(null)
+                .forEach(x -> LOGGER.info("{}", x));
     }
 }

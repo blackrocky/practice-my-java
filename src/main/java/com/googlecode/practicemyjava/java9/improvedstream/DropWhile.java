@@ -9,7 +9,8 @@ public class DropWhile {
     private static final Logger LOGGER = LoggerFactory.getLogger(DropWhile.class);
 
     public static void main(String[] args) {
-        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
-        stream.dropWhile(i -> i < 3).forEach(i -> LOGGER.info("{}", i));
+        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 1);
+        stream.dropWhile(i -> i < 3)
+                .forEach(i -> LOGGER.info("{}", i));
     }
 }
