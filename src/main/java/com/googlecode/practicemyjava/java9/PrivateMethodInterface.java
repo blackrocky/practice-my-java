@@ -7,8 +7,13 @@ public interface PrivateMethodInterface {
     default String closeDoorAnnouncement() { return "Door ga shimarimas"; }
     default String hello() { return konichiwa(); }
     default String hi() { return konichiwa(); }
+    static String morning() { return ohayo(); }
 
-    private static String konichiwa() {
+    private String konichiwa() {
         return "Konichiwa";
+    }
+
+    private static String ohayo() {
+        return "Ohayo";
     }
 }
