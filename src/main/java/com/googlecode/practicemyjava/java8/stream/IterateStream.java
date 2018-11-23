@@ -9,6 +9,9 @@ public class IterateStream {
     private static final Logger LOGGER = LoggerFactory.getLogger(IterateStream.class);
 
     public static void main(String[] args) {
-        IntStream.iterate(2, x -> x * x).filter(x -> x > 0 && x < 20).forEach(x -> LOGGER.info("{}", x));
+        IntStream.iterate(2, x -> x * x)
+                .limit(20)
+                .filter(x -> x > 0)
+                .forEach(x -> LOGGER.info("{}", x));
     }
 }

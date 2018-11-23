@@ -25,30 +25,46 @@ public class Reduce {
     }
 
     public static List<Employee> findEmployeAgedLessThan(final int age) {
-        return employees.stream().filter(employee -> employee.getAge() < age).collect(Collectors.toList());
+        return employees.stream()
+                .filter(employee -> employee.getAge() < age)
+                .collect(Collectors.toList());
     }
 
     public static int findMaxAge() {
-        return employees.stream().mapToInt(Employee::getAge).max().getAsInt();
+        return employees.stream()
+                .mapToInt(Employee::getAge)
+                .max()
+                .getAsInt();
     }
 
     public static int findMaxAgeUsingMapReduce() {
-        return employees.stream().map(Employee::getAge).reduce(0, (age1, age2) -> age1 >= age2? age1 : age2);
+        return employees.stream()
+                .map(Employee::getAge)
+                .reduce(0, (age1, age2) -> age1 >= age2? age1 : age2);
     }
 
     public static double findAverageAge() {
-        return employees.stream().mapToInt(Employee::getAge).average().getAsDouble();
+        return employees.stream()
+                .mapToInt(Employee::getAge)
+                .average()
+                .getAsDouble();
     }
 
     public static String findHulkJobTitle() {
-        return employees.stream().filter(employee -> "Hulk".equals(employee.getLastName())).map(employee -> employee.getJobTitle()).collect(Collectors.toList()).get(0);
+        return employees.stream()
+                .filter(employee -> "Hulk".equals(employee.getLastName()))
+                .map(employee -> employee.getJobTitle())
+                .collect(Collectors.toList()).get(0);
     }
 
     public static Map<Employee.Gender, List<Employee>> groupByGender() {
-        return employees.stream().collect(Collectors.groupingBy(Employee::getGender));
+        return employees.stream()
+                .collect(Collectors.groupingBy(Employee::getGender));
     }
 
     public static Map<Employee.Gender, List<String>> groupByGenderEmployee() {
-        return employees.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.mapping(Employee::getFirstName, Collectors.toList())));
+        return employees.stream()
+                .collect(Collectors
+                        .groupingBy(Employee::getGender, Collectors.mapping(Employee::getFirstName, Collectors.toList())));
     }
 }
